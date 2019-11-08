@@ -121,7 +121,7 @@ class ImageWorkshopLib
             throw new ImageWorkshopLibException('Can\'t find a font file at this path : "'.$fontFile.'".', static::ERROR_FONT_NOT_FOUND);
         }
 
-        $box = imagettfbbox($fontSize, $fontAngle, $fontFile, $text);
+        $box = imageftbbox($fontSize, $fontAngle, $fontFile, $text);
 
         if (!$box) {
             return false;
@@ -143,7 +143,7 @@ class ImageWorkshopLib
         imagefilledrectangle($img, 0, 0, imagesx($img), imagesy($img), $black);
 
         // for ensure that the text is completely in the image
-        imagettftext($img, $fontSize, $fontAngle, $left, $top, $white, $fontFile, $text);
+        imagefttext($img, $fontSize, $fontAngle, $left, $top, $white, $fontFile, $text);
 
         // start scanning (0=> black => empty)
         $rleft = $w4 = $width<<2;
