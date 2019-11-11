@@ -1265,8 +1265,10 @@ class ImageWorkshopLayer
      */
     public function enableAlpha($enable = true, $save = true)
     {
-        imageAlphaBlending($this->image, $enable);
-        imageSaveAlpha($this->image, $save);
+        $imagen_alpha = $this->image->getResult();
+        imageAlphaBlending($imagen_alpha, $enable);
+        imageSaveAlpha($imagen_alpha, $save);
+        $this->image = self::initFromResourceVar($imagen_alpha);
     }
 
     /**
