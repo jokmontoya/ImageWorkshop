@@ -1268,7 +1268,7 @@ class ImageWorkshopLayer
         $imagen_alpha = $this->getResult();
         imageAlphaBlending($imagen_alpha, $enable);
         imageSaveAlpha($imagen_alpha, $save);
-        $this->initFromResourceVar($imagen_alpha);
+        $this->image = ImageWorkshop::initFromResourceVar($imagen_alpha);
     }
 
     /**
